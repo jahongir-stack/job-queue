@@ -1,24 +1,25 @@
 # job-queue
 
-Priority-based retry queue with exponential backoff and dead-letter job state.
+Deterministic job queue with retry, exponential backoff and dead-letter state.
 
-## Requirements
-
-- Python 3.11 or newer
-- Standard library only
+Python 3.11+; no third-party dependencies.
 
 ## Run tests
 
-```bash
+From the repository root:
+
+```sh
 python -m unittest discover -s . -p 'test_core.py' -v
 ```
 
-## Repository layout
+## Contents
 
-- `core.py` — implementation
-- `test_core.py` — unit tests
-- `.github/workflows/tests.yml` — Python 3.11, 3.12 and 3.13 CI matrix
+- `core.py`: implementation
+- `test_core.py`: unit tests and usage examples
+- `.github/workflows/tests.yml`: CI tests on Python 3.11–3.13
 
-## Notes
+## Production limitations
 
-Educational/reference implementation, not an audited production deployment. Review security, reliability, persistence, concurrency and operational requirements before production use.
+Demonstration uses in-memory queue state. For production add durability, worker leases, distributed coordination and observability.
+
+This is a learning/portfolio reference, not an audited production service.
